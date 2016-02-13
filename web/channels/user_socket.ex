@@ -2,7 +2,7 @@ defmodule Hydchat.UserSocket do
   use Phoenix.Socket
 
   ## Channels
-  # channel "rooms:*", Hydchat.RoomChannel
+  channel "rooms:*", Hydchat.RoomChannel
 
   ## Transports
   transport :websocket, Phoenix.Transports.WebSocket
