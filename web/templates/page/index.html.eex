@@ -1,4 +1,12 @@
 <h2>Hyderabad Elixir Chat</h2>
 
-<div id="messages" style='height:350px; border: solid 1px #ddd;'></div>
+<div id="messages" style='height:350px; border: solid 1px #ddd;'>
+  <%= for m <- @messages do %>
+    <p class="message">
+      @<%= m.user %>
+      <%= m.text %>
+    </p>
+  <% end %>
+</div>
 <input placeholder='Please enter your message and hit enter...' type="text" id='input' class='form-control' style='padding: 20px;'>
+

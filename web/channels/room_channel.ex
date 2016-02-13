@@ -14,6 +14,11 @@ defmodule Hydchat.RoomChannel do
     IO.inspect(">>>>")
     IO.inspect [payload, socket]
     IO.inspect(">>>>")
+
+    # Repository design pattern
+    changeset = Hydchat.Message.changeset(%Hydchat.Message{}, %{"text" => payload["text"], "user" => payload["user"]})
+    message = Hydchat.Repo.insert!(changeset)
+
     broadcast! socket, "recv_msg" ,payload
     {:noreply, socket}
   end
